@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-nor$%m$4eq0h9$uf)*(c*f-v4vfovdm-m_2+f!em6-o)fm&ew1'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,18 +84,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default':{
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': "blocksite",
-        'HOST': 'db',
-        'PORT': '5432',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default':{
+    #     'ENGINE':'django.db.backends.postgresql_psycopg2',
+    #     'NAME': os.getenv('DB_NAME'),
+    #     'USER': os.getenv('DB_USER'),
+    #     'PASSWORD': "blocksite",
+    #     'HOST': 'db',
+    #     'PORT': '5432',
+    # }
 }
 
 
